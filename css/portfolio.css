@@ -1,0 +1,268 @@
+*{margin: 0; padding: 0;}
+.wrap {
+  width: 100%;
+  max-width: 1000px;
+}
+
+.portfolio-container {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(to bottom, #4997dc,#4d6ac5);
+  color: #ffffff;
+  display: flex;
+}
+
+.portfolio-title {
+  padding: 50px;
+}
+
+.portfolio-title p {
+  font-size: 26px;
+}
+
+.portfolio-title-text {
+  width: 380px;
+  font-size: 14px;
+  margin: 20px 0;
+}
+
+.portfolio-title-img {
+  width: 280px;
+  height: 300px;
+  margin-left: 15%;
+  padding-top: 50px;
+}
+
+.portfolio-title-img img {
+  width: 280px;
+  height: 300px;
+}
+
+.more-btn {
+  width: 100px;
+}
+
+.show-btn {
+  width: 150px;
+  
+}
+
+button {
+  height: 40px;
+  background: #444445;
+  color: #ffffff;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0f0f0f;
+}
+
+.main-text {
+  width: 100%;
+  text-align: center;
+  padding: 80px 0;
+}
+
+.main-text div span {
+  display: inline-block;
+  margin: 20px 0;
+  letter-spacing: -0.5px;
+}
+
+.service-container {
+  width: 100%;
+  height: 300px;
+  background: #4e61c0;
+}
+
+.service-text {
+  color: #ffffff;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.service-text p:nth-child(1) {
+  font-size: 14px;
+}
+
+.service-text p:nth-child(2) {
+  font-size: 20px;
+}
+
+.service-icons {
+  display: flex;
+  justify-content: center;
+  color: #ffffff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.icon i {
+  display: flex;
+  width: 70px;
+  height: 70px;
+  background: #ffffff;
+  border-radius: 50px;
+  box-sizing: border-box;
+  color: #4e61c0;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 50px;
+}
+
+.icon span {
+  letter-spacing: -0.5px;
+  font-size: 12px;
+  display: inline-block;
+  font-weight: lighter;
+}
+
+.active-container {
+  padding-top: 50px;
+}
+
+.active-title {
+  text-align: center;
+}
+
+.active-title p:nth-child(1) {
+  font-size: 12px;
+}
+
+.active-title p:nth-child(2) {
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+.active-box {
+  width: 100%;
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 0 60px;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.box-content {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 50px;
+}
+
+.box-content:hover {
+  border: 20px solid #ffffff;
+  transition: all 0.5s;
+  box-sizing: border-box;
+}
+
+.active-box-content h3{
+  position: relative;
+  z-index: 1;
+  top: -220px;
+  left: 40px;
+  display: inline-block;
+}
+
+.active-box-content span{
+  position: relative;
+  z-index: 1;
+  top: -190px;
+  left: -50px;
+}
+
+.active-box-content:first-child .box-content {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.active-box-content:nth-child(1) {
+  background-image: url(/img/portfolio-1.jpg);
+}
+
+.active-box-content:nth-child(2) {
+  background-image: url(/img/portfolio-2.jpg);
+}
+
+.active-box-content:nth-child(3) {
+  background-image: url(/img/portfolio-3.jpg);
+}
+
+.active-box-content:nth-child(4) {
+  background-image: url(/img/portfolio-4.jpg);
+}
+
+.active-box-content {
+  background-size: cover;
+  width: 440px;
+  height: 260px;
+  color: #ffffff;
+}
+
+.active-box-content span {
+  font-size: 12px;
+  display: inline-block;
+  margin-top: 20px;
+  font-weight: lighter;
+}
+
+.footer {
+  padding-top: 50px;
+}
+
+.footer-icon {
+  display: flex;
+  justify-content: center;
+}
+
+.footer-icon-bg {
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  box-sizing: border-box;
+  background: #4e61c0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  margin: 0 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.footer-icon-bg:hover {
+  background: #2a346a;
+}
+
+.copyright {
+  text-align: center;
+  padding: 30px;
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+@media screen and (max-width: 999px) {
+  .active-box {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .portfolio-container{
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background: linear-gradient(to bottom, #5ba7e9,#413dae)
+  }
+  .portfolio-title-img {
+    margin-left: 0%;
+    padding-top: 0;
+  }
+  .active-box {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,153 @@
+.profile{
+  width: 100px; 
+  display: block; 
+  margin-left: auto; 
+  margin-right: auto;
+}
+
+.name, .intro, .content{
+  font-size: 16px; 
+  letter-spacing: -1px; 
+  text-align: center;
+}
+
+.box {
+  width: 300px;
+  margin: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 0 auto;
+  font-size: 10px;
+  text-align: center;
+  box-shadow: 5px 5px 5px gray;
+}
+
+.container {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  background: aquamarine;
+  margin-bottom: 10px;
+}
+
+.left-menu {
+  width: 20%;
+  height: 400px;
+  background: cornflowerblue;
+  /* float: lef t; */
+  display: inline-block;
+}
+
+.right {
+  width: 80%;
+  height: 400px;
+  background: coral;
+  /* float: left; */
+  display: inline-block;
+
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  /* clear: both; */
+}
+
+#wrap {
+  width: 800px;
+  height: 200px;
+  margin: 0 auto;
+}
+.navbar > li {
+  display: inline-block;
+  width: 60px;
+  text-align: center;
+  background-color: #eee;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.navbar  a {
+  font-size: 16px;
+  text-decoration: none;
+  color: black;
+}
+
+.con {
+  width: 550px;
+  height: 100%;
+  float: left;
+  margin: 10px;
+}
+
+.con_title {
+  width: 100%;
+  float: left;
+}
+
+.con_title > .tit_img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 1px solid rgb(216, 212, 212);
+  overflow: hidden;
+  float: left;
+  margin: 10px;
+}
+
+.con_title .tit_img > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.con_txt {
+  margin: 15px 0;
+  float: left;
+  letter-spacing: 1px;
+  line-height: 30%;
+  font-size: 14px;
+  
+}
+
+.con_txt > p:nth-child(2) {
+  font-size: 12px;
+  color: lightgrey;
+}
+
+.con_txt > p {
+  letter-spacing: -1px;
+  padding-bottom: -20px;
+  height: 100%;
+}
+
+.con_contain {
+  float: left;
+  margin: -5px 10px;
+}
+
+.con_contain_title p:nth-child(1) {
+  font-weight: bold;
+}
+
+.con_contain_title p:nth-child(2) {
+  color: lightgray;
+  font-size: 14px;
+}
+
+.imgbox {
+  width: 180px;
+  height: 100%;
+  float: left;
+  margin: 10px;
+}
+
+.imgbox img {
+  width: 100%;
+  height: 80%;
+  margin-top: 10%;
+}
