@@ -176,16 +176,6 @@ body {
   margin: 0 20px;
 }
 
-.input-file::file-selector-button {
-  background: skyblue;
-  border: none;
-  padding: 20px;
-}
-
-.input-file::file-selector-button:hover {
-  background: blue;
-}
-
 .product-container {
   width: 80%;
   max-width: 1000px;
@@ -214,6 +204,41 @@ body {
 
 .product-container span {
   color: #999;
+}
+
+input[type=file]::-webkit-file-upload-button {
+  background: skyblue;
+  border: none;
+}
+
+input::-webkit-input-placeholder {
+  color: red;
+}
+input[type=range] {
+  appearance: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  appearance: none;
+  background: orange;
+  width: 50px;
+  height: 50px;
+}
+
+progress {
+  appearance: none;
+}
+progress::-webkit-progress-bar {
+  background: #f0f0f0;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 10px #ccc;
+}
+
+progress::-webkit-progress-value {
+  border-radius: 10px;
+  background: #1d976c;
+  background: -webkit-linear-gradient(to right, #93F9B9, #1D976C);
+  background: linear-gradient(to right, #93F9B9, #1D976C);
 }
 
 .shop-bg {
