@@ -176,6 +176,16 @@ body {
   margin: 0 20px;
 }
 
+.input-file::file-selector-button {
+  background: skyblue;
+  border: none;
+  padding: 20px;
+}
+
+.input-file::file-selector-button:hover {
+  background: blue;
+}
+
 .product-container {
   width: 80%;
   max-width: 1000px;
@@ -183,6 +193,13 @@ body {
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+
+.product-container::after {
+  content: '';
+  display: block;
+  clear: both;
+  float: none;
 }
 
 .product-container div {
