@@ -1,25 +1,44 @@
+@use 'reset';
+
+@mixin fontstyle($size) {
+  font-size: $size;
+  letter-spacing: -1px;
+}
+
+h2 {
+  @include fontstyle(30px)
+}
+
+h3 {
+  @include fontstyle(20px)
+}
+
+h4 {
+  @include fontstyle(10px)
+}
+
 %btn {
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   padding: 20px;
 }
 
 .btn-green {
   @extend %btn;
-  color: green;
+  background: green;
+  color: reset.$main-color;
 }
 
 .btn-red {
   @extend %btn;
-  color: red;
+  background: red;
 }
 
 .btn-blue {
   @extend %btn; 
-  color: blue;
+  background: blue;
 }
 
-$main-color : #2a4cb2;
 $sub-color : #eeeeee;
 
 

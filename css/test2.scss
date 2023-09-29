@@ -1,0 +1,52 @@
+.sh-list {
+  li {
+    list-style: none;
+    padding: 15px;
+    border: 1px solid #eee;
+    &:hover {
+      background: skyblue;
+      color: white;
+    }
+  }
+}
+
+%alert-box {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  color: white;
+}
+
+.alert-box-blue {
+  @extend %alert-box;
+  background: blue;
+}
+
+.alert-box-green {
+  @extend %alert-box;
+  background: green;
+}
+
+.alert-box-orange {
+  @extend %alert-box;
+  background: orange;
+}
+
+%row-box{
+  box-sizing: border-box;
+}
+
+@mixin row-box-style($width) {
+  @extend %row-box;
+  width: $width;
+  float: left;
+  padding: 15px;
+}
+
+.row .col-6 {
+  @include row-box-style(50%);
+}
+
+.row .col-4 {
+  @include row-box-style(33.33%);
+}
