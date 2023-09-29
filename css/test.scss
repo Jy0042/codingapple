@@ -1,0 +1,32 @@
+%btn {
+  width: 100px;
+  height: 100px;
+  padding: 20px;
+}
+
+.btn-green {
+  @extend %btn;
+  color: green;
+}
+
+.btn-red {
+  @extend %btn;
+  color: red;
+}
+
+.btn-blue {
+  @extend %btn; 
+  color: blue;
+}
+
+$main-color : #2a4cb2;
+$sub-color : #eeeeee;
+
+
+.background {
+  background-color: $main-color;
+}
+
+.box {
+  color: $sub-color;
+}
