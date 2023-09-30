@@ -337,6 +337,7 @@ progress::-webkit-progress-value {
   margin-top: 20px;
 }
 
+
 @media screen and (max-width: 1200px) {
   .main-title {
     font-size: 40px;
