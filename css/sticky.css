@@ -1,0 +1,26 @@
+body {
+  background: gray;
+  height: 3000px;
+}
+
+.box {
+  background: lightgray;
+  height: 2000px;
+  margin-top: 500px;
+}
+
+.img-box {
+  float: right;
+  width: 400px;
+  position: sticky;
+  top: 100px;
+}
+
+.img-box img {
+  width: 100%;
+}
+
+.text {
+  float: left;
+  width: 300px;
+}
