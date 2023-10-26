@@ -1,0 +1,27 @@
+.side-bar {
+  position: fixed;
+  width: 150px;
+  height: 100%;
+  background: #4850c9;
+  text-align: left;
+  color: white;
+  float: left;
+}
+
+.icon-box {
+  padding: 20px;
+}
+
+.icon-box i {
+  width: 20px;
+}
+
+.icon-box span{
+  margin-left: 5px;
+}
+
+@keyframes text {
+  0% {
+    
+  }
+}
