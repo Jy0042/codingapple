@@ -9,19 +9,25 @@
 <body>
   <div class="alert-box" id="alert">
     <p id="AlertText">알림창임</p>
-    <button onclick="Alert('none');">닫기</button>
+    <button id="close">닫기</button>
   </div>
-  <button onclick="textChangeAlert('아이디를 입력하세요'), Alert('block');">버튼1</button>
-  <button onclick="textChangeAlert('비밀번호를 입력하세요'), Alert('block');">버튼2</button>
+  <button id="input-id">버튼1</button>
+  <button id="input-pw">버튼2</button>
   
   <script>
-    function Alert(구멍) {
-      document.getElementById('alert').style.display = 구멍;
-    }
+    document.getElementById('close').addEventListener('click', function() {
+      document.getElementById('alert').style.display = 'none';
+    });
 
-    function textChangeAlert(param) {
-      document.getElementById('AlertText').innerHTML = param;
-    }
+    document.getElementById('input-id').addEventListener('click', function() {
+      document.getElementById('alert').style.display = 'block';
+      document.getElementById('AlertText').innerHTML = '아이디를 입력해주세요';
+    });
+
+    document.getElementById('input-pw').addEventListener('click', function() {
+      document.getElementById('alert').style.display = 'block';
+      document.getElementById('AlertText').innerHTML = '비밀번호를 입력해주세요';
+    });
 
   </script>
 </body>
