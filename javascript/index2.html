@@ -8,15 +8,21 @@
 </head>
 <body>
   <div class="alert-box" id="alert">
-    알림창임
-    <button onclick="closeAlert('none')">닫기</button>
+    <p id="AlertText">알림창임</p>
+    <button onclick="Alert('none');">닫기</button>
   </div>
-  <button onclick="openAlert('block')">열기</button>
+  <button onclick="textChangeAlert('아이디를 입력하세요'), Alert('block');">버튼1</button>
+  <button onclick="textChangeAlert('비밀번호를 입력하세요'), Alert('block');">버튼2</button>
   
   <script>
-    function openAlert(구멍) {
+    function Alert(구멍) {
       document.getElementById('alert').style.display = 구멍;
     }
+
+    function textChangeAlert(param) {
+      document.getElementById('AlertText').innerHTML = param;
+    }
+
   </script>
 </body>
 </html>
