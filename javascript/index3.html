@@ -73,13 +73,17 @@
 
       $('form').on('submit', function (e) {
         if ($('#inputIdVal').val() == '') {
-          e.preventDefault();
           alert('아이디를 입력하세요');
           $('#inputIdVal').focus();
-        } else if ($('#inputPwVal').val() == '') {
           e.preventDefault();
+        } else if ($('#inputPwVal').val() == '') {
           alert('비밀번호를 입력하세요');
           $('#inputPwVal').focus();
+          e.preventDefault();
+        } else if ($('#inputPwVal').val().length < 6) {
+          alert('비밀번호는 6자리 이상 입력');
+          $('#inputPwVal').focus();
+          e.preventDefault();
         }
       });
 
