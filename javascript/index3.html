@@ -13,7 +13,10 @@
         <h4>로그인하세요</h4>
         <button class="btn btn-danger" id="close">닫기</button>
       </div>
-    </div> 
+    </div>
+
+
+
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
@@ -31,28 +34,34 @@
       <li class="list-group-item">Item 4</li>
     </ul>
 
-    <button id="login" class="btn btn-primary">로그인</button>
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="login" class="btn btn-primary">로그인</button>
+    </div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
-      
-      document.querySelector('.navbar-toggler').addEventListener('click', function() {
-        document.querySelectorAll('.list-group')[0].classList.toggle('show');
-      });
 
+      $('#login').on('click', function () {
+        $('.black-bg').addClass('show-modal');
+      });
 
       $('#close').on('click', function () {
-        $('.black-bg').hide();
+        $('.black-bg').removeClass('show-modal');
       });
 
-      $('#login').on('click', function () {
-        $('.black-bg').show();
+      var isListShow = false;
+      $('.navbar-toggler').on('click', function () {
+        if (!isListShow) {
+          $('.list-group').slideDown();
+          isListShow = true;
+        } else {
+          $('.list-group').slideUp();
+          isListShow = false;
+        }
       });
 
-      $('#login').on('click', function () {
-        $('.black-bg').addClass('.show-modal');
-      });
 
 
     </script>
