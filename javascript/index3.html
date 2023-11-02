@@ -19,8 +19,8 @@
             <input type="password" id="inputPwVal" class="form-control">
           </div>
           <button type="submit" id="submit-btn" class="btn btn-primary">전송</button>
+          <button class="btn btn-danger" id="close">닫기</button>
         </form> 
-        <button class="btn btn-danger" id="close">닫기</button>
       </div>
     </div>
     
@@ -56,7 +56,8 @@
         $('.black-bg').addClass('show-modal');
       });
 
-      $('#close').on('click', function () {
+      $('#close').on('click', function (e) {
+        e.preventDefault();
         $('.black-bg').removeClass('show-modal');
       });
 
