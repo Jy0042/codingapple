@@ -30,6 +30,7 @@
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
         <span class="navbar-brand">Navbar</span>
+        <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,6 +52,41 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
+
+
+      /* 내가 작성한 코드 */
+
+      var click_btn = false
+      $('.badge').on('click', function(){
+        if (!click_btn) {
+          $('.badge').html('Light 🔄');
+          $('.badge, .navbar-brand').css('color', 'white');
+          $('body').addClass('dark');
+          $('.navbar-light, .bg-light').removeClass('navbar-light, bg-light').addClass('navbar-dark, bg-dark');
+          $('.navbar-toggler').css('background-color', 'white');
+          click_btn = true;
+        } else {
+          $('.badge').html('Dark 🔄');
+          $('.badge, .navbar-brand').css('color', 'black');
+          $('body').removeClass('dark');
+          $('.navbar-dark, .bg-dark').removeClass('navbar-dark, bg-dark').addClass('navbar-light, bg-light');
+          $('.navbar-toggler').css('background-color', '');
+          click_btn = false;
+        }
+      });
+
+
+      /* 강의 숙제로 작성한 코드 */
+      // var count = 0;
+      // $('.badge').on('click', function(){
+      //   count++;
+      //   if(count % 2 == 1) {
+      //     $('.badge').html('Light 🔄');
+      //   } else {
+      //     $('.badge').html('Dark 🔄');
+      //   }
+      // });
+
 
       $('#login').on('click', function () {
         $('.black-bg').addClass('show-modal');
