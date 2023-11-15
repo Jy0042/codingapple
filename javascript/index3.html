@@ -52,6 +52,22 @@
     <div class="alert alert-danger">
       <span>5</span>초 이내 구매 시 사은품 증정!
     </div>
+
+    <div class="slide-container">
+      <div class="slide-box">
+        <img src="../img/nhon1.jpeg" alt="">
+      </div>
+      <div class="slide-box">
+        <img src="../img/nhon2.jpeg" alt="">
+      </div>
+      <div class="slide-box">
+        <img src="../img/nhon3.jpeg" alt="">
+      </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -148,6 +164,17 @@
           $('.alert').hide();
         }
         }, 1000);
+
+
+        $('.slide-1').on('click',function(){
+          $('.slide-container').css('transform', 'translateX(0vw)');
+        });
+        $('.slide-2').on('click',function(){
+          $('.slide-container').css('transform', 'translateX(-100vw)');
+        });
+        $('.slide-3').on('click',function(){
+          $('.slide-container').css('transform', 'translateX(-200vw)');
+        });
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
