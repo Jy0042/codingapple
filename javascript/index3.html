@@ -94,18 +94,20 @@
       var click_btn = false
       $('.badge').on('click', function(){
         if (!click_btn) {
-          $('.badge').html('Light 🔄');
-          $('.badge, .navbar-brand').css('color', 'white');
+          // Dark 모드로 변경
+          $('.badge').removeClass('bg-dark').addClass('bg-white').html('Light 🔄');
+          $('.navbar-brand').css('color', 'white');
           $('body').addClass('dark');
-          $('.navbar-light, .bg-light').removeClass('navbar-light, bg-light').addClass('navbar-dark, bg-dark');
-          $('.navbar-toggler').css('background-color', 'white');
+          $('.navbar-light, .bg-light').removeClass('navbar-light bg-light').addClass('navbar-dark bg-dark');
+          $('.badge').css('color', 'black');
           click_btn = true;
         } else {
-          $('.badge').html('Dark 🔄');
-          $('.badge, .navbar-brand').css('color', 'black');
+          // Light 모드로 변경
+          $('.navbar-brand').css('color', 'black');
           $('body').removeClass('dark');
-          $('.navbar-dark, .bg-dark').removeClass('navbar-dark, bg-dark').addClass('navbar-light, bg-light');
-          $('.navbar-toggler').css('background-color', '');
+          $('.navbar-dark, .bg-dark').removeClass('navbar-dark bg-dark').addClass('navbar-light bg-light');
+          $('.badge').removeClass('bg-white navbar-light').addClass('bg-dark').html('Dark 🔄');
+          $('.badge').css('color', 'white');
           click_btn = false;
         }
       });
@@ -123,17 +125,21 @@
       // });
 
 
-      $('#login').on('click', function () {
+      $('#login').on('click', function() {
         $('.black-bg').addClass('show-modal');
       });
 
-      $('#close').on('click', function (e) {
+      $('#close').on('click', function(e) {
         e.preventDefault();
         $('.black-bg').removeClass('show-modal');
       });
 
+      $('.black-bg').on('click', function() {
+        $('.black-bg').removeClass('show-modal');
+      });
+
       var isListShow = false;
-      $('.navbar-toggler').on('click', function () {
+      $('.navbar-toggler').on('click', function() {
         if (!isListShow) {
           $('.list-group').slideDown();
           isListShow = true;
