@@ -29,7 +29,7 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">Jy's Shop</span>
         <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" type="button">
           <span class="navbar-toggler-icon"></span>
@@ -49,19 +49,28 @@
       <button id="login" class="btn btn-primary">로그인</button>
     </div>
 
+    <div class="tos" style="width: 200px; height: 100px; overflow-y: scroll;">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+      Voluptas nam odio, beatae natus magnam debitis? 
+      Labore ratione natus asperiores iste provident. 
+      Modi ex aliquam iure illum voluptatum assumenda ab dolores?
+    </div>
+
+    <div style="height: 1000px;"></div>
+
     <div class="alert alert-danger">
       <span>5</span>초 이내 구매 시 사은품 증정!
     </div>
 
     <div class="slide-container">
       <div class="slide-box">
-        <img src="../img/nhon1.jpeg" alt="">
+        <img src="../img/car1.png" alt="">
       </div>
       <div class="slide-box">
-        <img src="../img/nhon2.jpeg" alt="">
+        <img src="../img/car2.png" alt="">
       </div>
       <div class="slide-box">
-        <img src="../img/nhon3.jpeg" alt="">
+        <img src="../img/car3.png" alt="">
       </div>
     </div>
 
@@ -214,6 +223,27 @@
           } else if (img == 3) {
             $('.slide-container').css('transform', 'translateX(-100vw)');
             img -= 1;
+          }
+        });
+
+
+        $(window).on('scroll', function () {
+          if ($(window).scrollTop() > 100) {
+            $('.navbar-brand').css('font-size', 15);
+          } else {
+            $('.navbar-brand').css('font-size', 30);
+          }
+        });
+
+        $('.tos').on('scroll', function () {
+          let scroll = document.querySelector('.tos').scrollTop;
+          let height = document.querySelector('.tos').scrollHeight;
+          let cH = document.querySelector('.tos').clientHeight;
+
+          //console.log(scroll,height,cH);
+
+          if (scroll + cH == height) {
+            alert("약관에 동의?")
           }
         });
     </script>
