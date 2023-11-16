@@ -35,7 +35,9 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+      <div class="scrollFill"></div>
     </nav>
+    
     
     <ul class="list-group">
       <li class="list-group-item">Item 1</li>
@@ -246,6 +248,18 @@
             alert("약관에 동의?")
           }
         });
+
+
+        $(window).on('scroll', function (){
+            let winScroll = document.documentElement.scrollHeight
+            let wincH = window.innerHeight;
+            let winHeight = window.scrollY
+
+            let scrollPercentage = (winHeight / (winScroll - wincH)) * 100;
+
+          $('.scrollFill').css('width', scrollPercentage + '%');
+        });
+
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
