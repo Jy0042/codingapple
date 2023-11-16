@@ -68,6 +68,10 @@
     <button class="slide-1">1</button>
     <button class="slide-2">2</button>
     <button class="slide-3">3</button>
+    <button class="previous">이전</button>
+    <button class="next">다음</button>
+    <button class="next2">다음(확장성)</button>
+
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
@@ -174,6 +178,43 @@
         });
         $('.slide-3').on('click',function(){
           $('.slide-container').css('transform', 'translateX(-200vw)');
+        });
+
+        var img = 1;
+
+        $('.next').on('click', function(){
+          if (img == 1) {
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            img += 1;
+          } else if (img == 2) {
+            $('.slide-container').css('transform', 'translateX(-200vw)');
+            img += 1;
+          } else if (img == 3) {
+            alert('다음 이미지가 없습니다');
+          }
+        });
+
+
+        $('.next2').on('click', function(){
+          $('.slide-container').css('transform', 'translateX(-' + img + '00vw)');
+          img++;
+          // if (img == 4) {
+          //   alert('마지막 이미지입니다.')
+          //   $('.slide-container').css('transform', 'translateX(-200vw)');
+          //   img = 0;
+          // }
+        });
+
+        $('.previous').on('click', function () {
+          if (img == 1 ) {
+            alert('이전 이지미가 없습니다.')
+          } else if (img == 2) {
+            $('.slide-container').css('transform', 'translateX(0vw)');
+            img -= 1;
+          } else if (img == 3) {
+            $('.slide-container').css('transform', 'translateX(-100vw)');
+            img -= 1;
+          }
         });
     </script>
     
