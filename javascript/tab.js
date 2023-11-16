@@ -1,14 +1,27 @@
 var tabBtn = $('.tab-button');
 var tabCont = $('.tab-content');
 
-for (let i  = 0; i < 3; i++) {
-  tabBtn.eq(i).on('click', function() {
-    tabBtn.removeClass('orange');
-    tabBtn.eq(i).addClass('orange');
+/* 탭 기능 다르게 구현해보기 (이벤트 응용)*/
+$('.list').click(function(e) {
+  console.log(+e.target.dataset.id);
+  openTap(+e.target.dataset.id);
+});
+
+
+
+/* 반복문으로 탭 기능 구현 */
+// for (let i  = 0; i < 3; i++) {
+//   tabBtn.eq(i).on('click', function() {
+//     openTap(i)
+//   });
+// }
+
+function openTap(num) {
+  tabBtn.removeClass('orange');
+  tabBtn.eq(num).addClass('orange');
     
-    tabCont.removeClass('show');
-    tabCont.eq(i).addClass('show');
-  });
+  tabCont.removeClass('show');
+  tabCont.eq(num).addClass('show');
 }
 
 // var tabBtn = $('.tab-button');
