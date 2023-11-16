@@ -134,8 +134,11 @@
         $('.black-bg').removeClass('show-modal');
       });
 
-      $('.black-bg').on('click', function() {
-        $('.black-bg').removeClass('show-modal');
+      $('.black-bg').on('click', function(e) {
+
+        if ($(e.target).is('.black-bg')) {
+          $('.black-bg').removeClass('show-modal');
+        }
       });
 
       var isListShow = false;
