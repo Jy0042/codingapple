@@ -47,3 +47,9 @@ function openTap(num) {
 //   tabBtn.eq(2).addClass('orange');
 //   tabCont.eq(2).addClass('show');
 // });
+
+
+var car2 = {name : '소나타', price : 50000}
+
+$('span:eq(0)').html(car2.name);
+$('span:eq(1)').html(car2.price);
