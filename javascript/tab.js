@@ -49,7 +49,9 @@ function openTap(num) {
 // });
 
 
-var car2 = {name : '소나타', price : 50000}
+var car2 = {name : '소나타', price : [50000, 3000, 4000] }
 
 $('span:eq(0)').html(car2.name);
-$('span:eq(1)').html(car2.price);
+$('span:eq(1)').html(car2.price[0]);
+
+console.log(car2);
