@@ -15,6 +15,19 @@
         <span>가격</span>
       </div>
     </div>
+
+    <form class="container my-5 form-group">
+      <p>상품선택</p>
+      <select class="form-select mt-2" id="productSelect">
+        <option>모자</option>
+        <option id="selectedOption">셔츠</option>
+      </select>
+      <select class="form-select mt-2 shirtOption">
+        <option>S</option>
+        <option>M</option>
+        <option>L</option>
+      </select>
+    </form>
     
     <style>
       ul.list {
@@ -52,6 +65,10 @@
       }
       .show {
         display: block;
+      }
+
+      .shirtOption {
+        display: none;
       }
     </style>
     

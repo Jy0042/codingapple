@@ -54,4 +54,29 @@ var car2 = {name : '소나타', price : [50000, 3000, 4000] }
 $('span:eq(0)').html(car2.name);
 $('span:eq(1)').html(car2.price[0]);
 
+
+// $(document).ready(function() {
+//   $('#productSelect').on('change', function() {
+//     var selectionOption = $(this).val();
+//     var shirtOp = $('.shirtOption');
+
+//     if (selectionOption === '셔츠') {
+//       shirtOp.css('display', 'block');
+//     } else {
+//       shirtOp.css('display', 'none');
+//     }
+//   });
+// });
+
+$('.form-select').eq(0).on('input', function(e) {
+  var value = e.currentTarget.value;
+
+  if (value == '셔츠') {
+    $('.form-select').eq(1).removeClass('shirtOption');
+  } else {
+    $('.form-select').eq(1).addClass('shirtOption');
+  }
+})
+
+
 console.log(car2);
