@@ -70,13 +70,42 @@ $('span:eq(1)').html(car2.price[0]);
 
 $('.form-select').eq(0).on('input', function(e) {
   var value = e.currentTarget.value;
+  var select = $('.form-select').eq(1);
+
+  select.empty();
 
   if (value == '셔츠') {
-    $('.form-select').eq(1).removeClass('shirtOption');
+    select.removeClass('shirtOption');
+
+    var shirtOptions = `
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+    `;
+
+    select.append(shirtOptions);
+  } else if (value == '바지') {
+    select.removeClass('shirtOption');
+    // select.html('');
+    var bottom = `
+        <option>28</option>
+        <option>30</option>
+    ;`
+    select.append(bottom);
+    // $select.append(bottom);
   } else {
-    $('.form-select').eq(1).addClass('shirtOption');
+    select.addClass('shirtOption');
   }
 })
+
+  var 템플릿 = '<p>안녕하세요ㅇㅇ</p>';
+
+  $('#test').append(템플릿);
+
+  var a = document.createElement('p');
+  a.innerHTML = 'ㅎㅇㅎㅇ';
+  document.querySelector('#test').appendChild(a);
 
 
 console.log(car2);
