@@ -68,36 +68,29 @@ $('span:eq(1)').html(car2.price[0]);
 //   });
 // });
 
+
 $('.form-select').eq(0).on('input', function(e) {
   var value = e.currentTarget.value;
   var select = $('.form-select').eq(1);
+  var top = [95, 100 ,105];
+  var pants = [28, 30, 32, 34];
 
   select.empty();
 
   if (value == '셔츠') {
     select.removeClass('shirtOption');
-
-    var shirtOptions = `
-            <option>S</option>
-            <option>M</option>
-            <option>L</option>
-            <option>XL</option>
-    `;
-
-    select.append(shirtOptions);
+    top.forEach(function(a) {
+      select.append(`<option>${a}</option`)
+    });
   } else if (value == '바지') {
     select.removeClass('shirtOption');
-    // select.html('');
-    var bottom = `
-        <option>28</option>
-        <option>30</option>
-    ;`
-    select.append(bottom);
-    // $select.append(bottom);
+    pants.forEach((a) => {
+      select.append(`<option>${a}</option`)
+    });
   } else {
     select.addClass('shirtOption');
   }
-})
+});
 
   var 템플릿 = '<p>안녕하세요ㅇㅇ</p>';
 
