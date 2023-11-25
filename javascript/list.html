@@ -8,32 +8,18 @@
     <link rel="stylesheet" href="/javascript/css/main.css">
   </head>
   <body>
-    <div class="card-group container">
-      <div class="card">
-        <img src="https://via.placeholder.com/600">
-        <div class="card-body">
-          <h5>Card title</h5>
-          <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600">
-        <div class="card-body">
-          <h5>Card title</h5>
-          <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
-        </div>
-      </div>
-      <div class="card">
-        <img src="https://via.placeholder.com/600">
-        <div class="card-body">
-          <h5>Card title</h5>
-          <p>가격 : 70000</p>
-          <button class="btn btn-danger">주문하기</button>
-        </div>
+    <div class="container">
+      <div class="row">
+    
+          <!-- <div class="col-sm-4">
+            <img src="https://via.placeholder.com/600" class="w-100">
+            <h5>Card title</h5>
+            <p>가격 : 70000</p>
+          </div> -->
+
       </div>
     </div>
+    
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
@@ -43,14 +29,50 @@
         { id : 1, price : 50000, title : 'Springfield Shirt' },
         { id : 2, price : 60000, title : 'Black Monastery' }
       ];
-      
-      for(let i = 0; i < 3; i++) {
-        $(`h5:eq(${i})`).html(products[i].title);
-        $(`p:eq(${i})`).html('가격 : ' + products[i].price);
+
+      function products_list(data) {
+        data.forEach((a, i) => {
+          var template = 
+            `<div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>${a.title}</h5>
+              <p>가격 : ${a.price}</p>
+            </div>`;
+          $('.row').append(template);
+        })
       }
+
+      products_list(products);
 
     </script>
 
+    <div class="container">
+      <button class="btn btn-primary" id="more">더보기</button>
+    </div>
+
+    <script>
+      var count = 0;
+
+      $('#more').click(function() {
+        if (count == 0) {
+            $.get('https://codingapple1.github.io/js/more1.json').done((data) => {
+              products_list(data);
+              console.log(data);
+          });
+        } else if (count == 1) {
+          $.get('https://codingapple1.github.io/js/more2.json').done((data) => {
+            products_list(data);
+            console.log(data);
+          $('#more').css('display', 'none'); // 더 이상 버튼을 보이지 않게 설정
+          });
+        }
+
+        count++;
+        console.log(`${count}회 클릭`);
+
+      });
+    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    </html>
   </body>
-</html>
