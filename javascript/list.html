@@ -21,6 +21,13 @@
     </div>
     
 
+    <div class="container my-3">
+      <button class="btn btn-dark" id="price">가격순 정렬</button>
+      <button class="btn btn-dark" id="price2">6만원 이하 가격 정렬</button>
+      <button class="btn btn-dark" id="name">이름순 정렬</button>
+      <button class="btn btn-dark" id="name2">이름순 거꾸로 정렬</button>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     
     <script>
@@ -29,6 +36,64 @@
         { id : 1, price : 50000, title : 'Springfield Shirt' },
         { id : 2, price : 60000, title : 'Black Monastery' }
       ];
+
+      $('#price').click(function() {
+        products.sort(function(a,b) {
+          return a.price - b.price;
+        });
+        $('.row').html('');
+        products_list(products);
+      });
+
+      $('#price2').click(function() {
+       var filterProducts = products.filter(function(product) {
+          return product.price <= 60000;
+        });
+        $('.row').html('');
+        products_list(filterProducts);
+        //console.log(filterProducts);
+      });
+
+      $('#name').click(function() {
+        products.sort(function(a,b) {
+          return a.title.localeCompare(b.title);
+        });
+        $('.row').html('');
+        products_list(products);
+        console.log(products);
+      });
+
+      $('#name2').click(function() {
+        products.sort().reverse(function(a,b) {
+          return a.title - b.title
+        });
+        $('.row').html('');
+        products_list(products);
+        console.log(products);
+      });
+
+      // var array = [7,3,5,2,40];
+      
+      // array.sort(function(a, b) {
+      //   return b - a
+      // });
+      // console.log(array);
+
+      
+
+      // var newArray = array.map(function(a) {
+      //   return a * 4
+      // })
+      // console.log(newArray);
+
+
+      
+      // var array2 = ['g','a','h','고양이','강아지'];
+      
+      // array2.sort(function(a,b) {
+      //   return a.localeCompare(b);
+      // });
+      // console.log(array2);
 
       function products_list(data) {
         data.forEach((a, i) => {
