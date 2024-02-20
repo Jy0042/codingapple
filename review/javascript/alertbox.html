@@ -9,8 +9,18 @@
 <body>
   <div class="alert-box" id="alert">
     Alert Box
-    <button onclick="document.getElementById('alert').style.display = 'none';">close</button>
+    <button onclick="closeAlert()">close</button>
   </div>
-  <button onclick="document.getElementById('alert').style.display = 'block';">Button</button>
+  <button onclick="openAlert()">Button</button>
+
+  <script>
+    function closeAlert() {
+      document.getElementById('alert').style.display = 'none';
+    }
+
+    function openAlert() {
+      document.getElementById('alert').style.display = 'block';
+    }
+  </script>
 </body>
 </html>
