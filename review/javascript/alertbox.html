@@ -8,19 +8,25 @@
 </head>
 <body>
   <div class="alert-box" id="alert">
-    Alert Box
-    <button onclick="closeAlert()">close</button>
+    <p id="textBox"></p>
+    <button onclick="CloseAlert();">close</button>
   </div>
-  <button onclick="openAlert()">Button</button>
+  <button onclick="AlertBox('아이디 입력');">Button1</button>
+  <button onclick="AlertBox('비밀번호 입력');">Button2</button>
 
   <script>
-    function closeAlert() {
+
+    function AlertBox(alertMessage) {
+      document.getElementById('alert').style.display = 'block';
+      document.getElementById('textBox').innerHTML = alertMessage;
+    }
+
+    function CloseAlert() {
       document.getElementById('alert').style.display = 'none';
     }
 
-    function openAlert() {
-      document.getElementById('alert').style.display = 'block';
-    }
-  </script>
+
+    
+    </script>
 </body>
 </html>
