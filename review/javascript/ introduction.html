@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <h1 id="hello">hello</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="hello">hello</h1>
 
-  <h1 id="study">공부하기 싫어요</h1>
-  
-  <script>
-    // 자바스크립트의 html을 바꾸는 형식
-    // document.getElementById('??').?? = '??';
-    
-    document.getElementById('hello').innerHTML = '안녕';
-    document.getElementById('hello').style.fontSize = '16px';
+    <h1 id="study">공부하기 싫어요</h1>
 
+    <script>
+      // 자바스크립트의 html을 바꾸는 형식
+      // document.getElementById('??').?? = '??';
 
-    var studyElement = document.getElementById('study');
-    studyElement.style.fontSize = '24px';
-    studyElement.style.color = 'dodgerblue';
-    studyElement.style.backgroundColor = 'lightpink';
-    studyElement.style.display = 'inline-block';
-    studyElement.innerHTML = '공부 열심히 하자!!'
+      document.getElementById("hello").innerHTML = "안녕";
+      document.getElementById("hello").style.fontSize = "16px";
 
-  </script>
-</body>
+      var studyElement = document.getElementById("study");
+
+      studyElement.style.fontSize = "24px";
+      studyElement.style.color = "dodgerblue";
+      studyElement.style.backgroundColor = "lightpink";
+      studyElement.style.display = "inline-block";
+      studyElement.innerHTML = "공부 열심히 하자!!";
+    </script>
+  </body>
 </html>
