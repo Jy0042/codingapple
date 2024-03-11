@@ -15,7 +15,18 @@
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
-        <button class="btn btn-danger" id="close">닫기</button>
+
+        <form action="success.html">
+          <div class="my-3">
+            <input type="text" class="form-control" id="email">
+          </div>
+          <div class="my-3">
+            <input type="password" class="form-control" id="password">
+          </div>
+          <button type="submit" class="btn btn-primary" id="send">전송</button>
+          <button type="button" class="btn btn-danger" id="close">닫기</button>
+
+        </form> 
       </div>
     </div>
 
@@ -44,8 +55,12 @@
       <li class="list-group-item">A fourth item</li>
       <li class="list-group-item">And a fifth one</li>
     </ul>
+
+    <div class="main-bg">
+      <h4>Shirts on Sale</h4>
+      <button id="loginBtn" class="btn btn-danger">로그인</button>
+    </div>
     
-    <button id="loginBtn">로그인</button>
 
     <script>
 
@@ -63,13 +78,25 @@
       $('#close').on('click', () => {
         // $('.black-bg').css('display','none');
         $('.black-bg').removeClass('show-modal');
-        $('.white-bg').css('transform', 'translateY(-100%)');
       });
 
       $('#menu').on('click', () => {
         $('.list-group').toggleClass('list');
       });
 
+      // 전송 버튼 누르면 저기 input에 입력한 값이 공백이면 알림창 띄워주세요
+      $('form').on('submit', (e) => {
+        if ($('#email').val() === '') {
+          alert('아이디를 입력하세요');
+          e.preventDefault();
+        } else if ($('#password').val() === '') {
+          alert('비밀번호를 입력하세요');
+          e.preventDefault();
+        } else if ($('#password').val().length < 6) {
+          alert('비밀번호는 6글자 이상 입력이 가능합니다');
+          e.preventDefault();
+        }
+      });
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

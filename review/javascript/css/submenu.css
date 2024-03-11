@@ -21,7 +21,7 @@
   padding: 30px;
   visibility: hidden; /* 애니메이션줄 때 display:none 대용 */
   opacity: 0;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .white-bg {
@@ -33,4 +33,9 @@
 .show-modal {
   visibility: visible;
   opacity: 1;
+}
+
+.main-bg {
+  padding: 100px 20px;
+  background: lightgray;
 }

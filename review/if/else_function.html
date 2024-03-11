@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function 삼육구게임(num) {
+      if (num % 9 === 0) {
+        console.log('박수x2');
+      } else if (num % 3 === 0) {
+        console.log('박수');
+      } 
+      else {
+        console.log('통과');
+      }
+    }
+
+    삼육구게임(45);
+    삼육구게임(24);
+    삼육구게임(11);
+    
+    function 합격했냐(score1, score2) {
+      if (score1 < 40 || score2 < 40) {
+        console.log('불합격');
+      } else if (score1 + score2 >= 120) {
+        console.log('합격');
+      } else {
+        console.log('불합격');
+      }
+    }
+
+    합격했냐(80, 40);
+    // 합격했냐(30, 100);
+    // 합격했냐(50, 50);
+
+    function 삼육구게임2(num) {
+      const lastNum = num.toString().slice(-1);
+      console.log(lastNum);
+      if (lastNum !== '0' && lastNum % 3 === 0) {
+        console.log('박수');
+      } else {
+        console.log('통과');
+      }
+    }
+
+    삼육구게임2(21321312406);
+
+
+    function 합격했냐2(a, b) {
+      if (!score(a) || !score(b)) {
+        alert("점수는 0에서 100사이의 숫자여야 합니다");
+      } else if (a < 40 || b < 40) {
+        console.log('불합격');
+      } else if (a + b >= 120) {
+        console.log('합격');
+      } else {
+        console.log('불합격');
+      }
+    }
+
+    function score(num) {
+      return typeof num === 'number' && num >= 0 && num <= 100;
+    }
+
+    합격했냐2(80, 40);
+  </script>
+</body>
+</html>
