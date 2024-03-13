@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
   </head>
-  <body>
+  <body class="">
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -41,7 +41,8 @@
 
     <nav class="navbar navbar-light bg-light">
       <div class="container-fluid">
-        <span class="navbar-brand">Navbar</span>
+        <span class="navbar-brand">JS Shop</span>
+        <span class="badge bg-dark">Dark 🔄</span>
         <button class="navbar-toggler" id="menu" type="button">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -95,6 +96,27 @@
         } else if ($('#password').val().length < 6) {
           alert('비밀번호는 6글자 이상 입력이 가능합니다');
           e.preventDefault();
+        }
+      });
+
+      let count = 0;
+
+      $('.badge').on('click', () => {
+        count++;
+        if (count % 2 === 1) {
+          $('.badge').text('Light 🔄');
+          $('body').addClass('dark');
+          $('.navbar').removeClass('navbar-light');
+          $('.navbar').removeClass('bg-light');
+          $('.navbar').addClass('navbar-dark');
+          $('.navbar').addClass('bg-dark');
+        } else {
+          $('.badge').text('Dark 🔄');
+          $('body').removeClass('dark');
+          $('.navbar').addClass('navbar-light');
+          $('.navbar').addClass('bg-light');
+          $('.navbar').removeClass('navbar-dark');
+          $('.navbar').removeClass('bg-dark');
         }
       });
     </script>
