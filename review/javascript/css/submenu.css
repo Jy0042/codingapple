@@ -49,3 +49,21 @@
   background-color: #fff;
   color: #000;
 }
+
+.slide-wrap {
+  overflow: hidden;
+}
+
+.slide-container {
+  width: 300vw;
+  display: flex;
+  transition: all .5s;
+  
+  > .slide-box {
+    width: 100vw;
+  }
+}
+
+.slide-box img {
+  width: 100%;
+}
