@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
   </head>
-  <body class="">
+  <body style="height: 3000px">
     <div class="black-bg">
       <div class="white-bg">
         <h4>로그인하세요</h4>
@@ -25,7 +25,8 @@
           </div>
           <button type="submit" class="btn btn-primary" id="send">전송</button>
           <button type="button" class="btn btn-danger" id="close">닫기</button>
-
+          
+          <div id="tos" style="width: 400px; height: 100px; overflow-y: scroll;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus corporis optio sapiente. Cumque iure accusantium ducimus, dolorem doloremque aliquam quod mollitia adipisci voluptate, quisquam placeat, tempore laboriosam voluptatibus ab eligendi.</div>
         </form> 
       </div>
     </div>
@@ -128,6 +129,14 @@
         }
       });
 
+      // 스크롤 끝까지 내렸을 때 이벤트
+      document.querySelector('#tos').addEventListener('scroll', function() {
+        let tos = document.querySelector('#tos');
+        if (tos.scrollTop + tos.clientHeight >= tos.scrollHeight) {
+          confirm("약관에 동의 하시겠습니까?");
+        }
+      });
+
       let count = 0;
 
       $('.badge').on('click', () => {
@@ -214,6 +223,15 @@
       $('.slide-3').on('click', function() {
         nowSlide = 3;
         $('.slide-container').css('transform', 'translateX(-200vw)');
+      });
+
+      // 스크롤 이벤트
+      window.addEventListener('scroll', function() {
+        if (window.scrollY === 0) {
+          document.querySelector('.navbar-brand').style.fontSize = "32px";
+        } else if (window.scrollY >= 100){
+          document.querySelector('.navbar-brand').style.fontSize = "16px";
+        }
       });
     </script>
     

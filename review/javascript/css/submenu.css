@@ -1,7 +1,25 @@
+:root {
+  scroll-behavior: auto;
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  z-index: 5;;
+}
+
+.navbar-brand {
+  font-size: 30px;
+}
+
 .list-group {
   height: 0;
   overflow: hidden;
   transition: all 1s;
+
+  > li:first-child {
+    margin-top: 56px;
+  }
 }
 
 .list {
@@ -38,6 +56,10 @@
 .main-bg {
   padding: 100px 20px;
   background: lightgray;
+}
+
+.alert {
+  margin: 0;
 }
 
 .dark {
