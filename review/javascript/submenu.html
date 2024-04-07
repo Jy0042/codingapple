@@ -182,43 +182,39 @@
       //     document.querySelector('.alert').style.visibility = 'hidden';
       //   }
       // }, 1000);
-      $(document).ready(function() {
-        let currentSlide = 1;
+      
+      let nowSlide = 1;
 
-        $('.previous-btn').on('click', function() {
-          if (currentSlide > 1) {
-            currentSlide--;
-            let translateVal = (currentSlide - 1) * -100;
-            $('.slide-container').css('transform', 'translateX(' + translateVal + 'vw)');
-          }
-        });
-        
-
-        $('.next-btn').on('click', function() {
-          if (currentSlide < 3) {
-            currentSlide++;
-            var translateValue = (currentSlide - 1) * -100; 
-            $('.slide-container').css('transform', 'translateX(' + translateValue + 'vw)');
-            }
-        });
-
-        $('.slide-1').on('click', function (){
-          currentSlide = 1;
-          $('.slide-container').css('transform', 'translateX(0vw)');
-        });
-
-        $('.slide-2').on('click', function (){
-          currentSlide = 2;
-          $('.slide-container').css('transform', 'translateX(-100vw)');
-        });
-  
-        $('.slide-3').on('click', function (){
-          currentSlide = 3;
-          $('.slide-container').css('transform', 'translateX(-200vw)');
-        });
-  
+      // 다음 버튼
+      $('.next-btn').on('click', function() {
+        if (nowSlide < 3) {
+          $('.slide-container').css('transform', 'translateX(-' + nowSlide + '00vw)');
+          nowSlide++;
+        }
       });
 
+      //이전 버튼
+      $('.previous-btn').on('click', function() {
+        if (nowSlide > 1) {
+          nowSlide--;
+          $('.slide-container').css('transform', 'translateX(-' + (nowSlide - 1) + '00vw)');
+        }
+      });
+
+      $('.slide-1').on('click', function() {
+        nowSlide = 1;
+        $('.slide-container').css('transform', 'translateX(0vw)');
+      });
+
+      $('.slide-2').on('click', function() {
+        nowSlide = 2;
+        $('.slide-container').css('transform', 'translateX(-100vw)');
+      });
+
+      $('.slide-3').on('click', function() {
+        nowSlide = 3;
+        $('.slide-container').css('transform', 'translateX(-200vw)');
+      });
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
