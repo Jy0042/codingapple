@@ -8,18 +8,19 @@
   z-index: 5;;
 }
 
+.block {
+  height: 71px;
+}
+
 .navbar-brand {
   font-size: 30px;
 }
 
 .list-group {
-  height: 0;
+  height: 0px;
   overflow: hidden;
   transition: all 1s;
-
-  > li:first-child {
-    margin-top: 56px;
-  }
+  background-color: red;
 }
 
 .list {
