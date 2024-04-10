@@ -14,13 +14,19 @@
 
 .navbar-brand {
   font-size: 30px;
+  transition: all .5s;
+}
+
+.scrollSpy {
+  height: 3px;
+  background-color :dodgerblue;
+  transition: all .5s;
 }
 
 .list-group {
   height: 0px;
   overflow: hidden;
   transition: all 1s;
-  background-color: red;
 }
 
 .list {
@@ -47,6 +53,7 @@
   background: white;
   border-radius: 5px;
   padding: 30px;
+  margin-top: 80px;
 } 
 
 .show-modal {

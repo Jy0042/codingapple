@@ -39,6 +39,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
+      <div class="scrollSpy"></div>
     </nav>
 
     <div class="block"></div>
@@ -233,10 +234,16 @@
           document.querySelector('.navbar-brand').style.fontSize = "32px";
         } else if (window.scrollY >= 100){
           document.querySelector('.navbar-brand').style.fontSize = "16px";
-        }
+        } 
+
+        let scrollPosition = (window.scrollY || window.pageXOffset || document.documentElement.scrollTop);
+        let scrollPercent  = ((scrollPosition / (document.body.offsetHeight - window.innerHeight)) * 100) + "%";
+
+        document.querySelector('.scrollSpy').style.width = scrollPercent;
+
       });
     </script>
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
-</html>
+</html> 
