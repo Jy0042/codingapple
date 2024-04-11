@@ -2,19 +2,11 @@ let button = document.querySelectorAll(".tab-button");
 let tabs = document.querySelectorAll('.tab-content');
 
 
-for (let i = 0; i < button.length; i++) {
-  button[i].addEventListener('click', function() {
-    button.forEach(function(btn) {
-      btn.classList.remove('orange');
-    });
-    button[i].classList.add("orange");
-
-    tabs.forEach(function (tab) {
-      tab.classList.remove("show");
-    });
-    tabs[i].classList.add('show');
-  });
-}
+// for (let i = 0; i < button.length; i++) {
+//   button[i].addEventListener('click', function() {
+//     tabOpen(i);
+//   });
+// }
 
 
 // for (let i = 0; i < button.length; i++) {
@@ -25,3 +17,18 @@ for (let i = 0; i < button.length; i++) {
 //     $(".tab-content").eq(i).addClass("show");
 //   })
 // }
+function tabOpen(param) {
+  button.forEach(function (btn) {
+    btn.classList.remove("orange");
+  });
+  button[param].classList.add("orange");
+
+  tabs.forEach(function (tab) {
+    tab.classList.remove("show");
+  });
+  tabs[param].classList.add("show");
+};
+
+document.querySelector('.list').addEventListener('click', function(e) {
+  tabOpen(e.target.dataset.id);
+});
