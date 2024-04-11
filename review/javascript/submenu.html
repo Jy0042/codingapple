@@ -91,6 +91,18 @@
 
     <script>
 
+      document.querySelector('.black-bg').addEventListener('click', function(e) {
+        /*
+        e.target; // 유저가 실제로 누른 거
+        e.currentTarget; // 이벤트리스너 달린 곳 = this;
+        e.preventDefault(); // 이벤트의 기본 동작 막아줌
+        e.stopPropagation(); // 상위 요소로 퍼지는 이벤트 중단
+        */
+        if (e.target === document.querySelector('.black-bg')) {
+          document.querySelector('.black-bg').classList.remove('show-modal');
+        }
+      });
+
       document.querySelector('.navbar-toggler').addEventListener('click', function() {
         document.querySelectorAll('.list-group')[0].classList.toggle('show');
       });
