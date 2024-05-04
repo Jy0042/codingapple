@@ -8,6 +8,7 @@ function App() {
     "남자 옷 추천",
     "맛집 추천",
   ]);
+  let [like, setLike] = useState(0);
 
   return (
     <>
@@ -15,7 +16,17 @@ function App() {
         <h4 style={{ color: "yellow", fontSize: "16px" }}>{logo}</h4>
       </div>
       <div className="list">
-        <h4>{title[0]}</h4>
+        <h4>
+          {title[0]}{" "}
+          <span
+            onClick={() => {
+              setLike(like + 1);
+            }}
+          >
+            👍
+          </span>{" "}
+          {like}
+        </h4>
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
