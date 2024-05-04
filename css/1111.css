@@ -1,0 +1,19 @@
+.size{
+  font-size: 20px;
+}
+
+.bold {
+
+}
+
+.color {
+  color: red;
+}
+
+.letter {
+  letter-spacing: -4px;
+}
+
+#list > li {
+  border: 1px solid bla
+}

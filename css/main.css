@@ -1,8 +1,10 @@
+* {
+  margin: 0; padding: 0;
+}
 .profile{
   width: 100px; 
-  display: block; 
-  margin-left: auto; 
-  margin-right: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .name, .intro, .content{
@@ -20,6 +22,9 @@
   font-size: 10px;
   text-align: center;
   box-shadow: 5px 5px 5px gray;
+}
+#test {
+  background-color: red;
 }
 
 .container {
@@ -151,3 +156,7 @@
   height: 80%;
   margin-top: 10%;
 }
+
+p, h3 {
+  color: blue;
+} 

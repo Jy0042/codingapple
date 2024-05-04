@@ -46,7 +46,7 @@
       });
 
       $('#price2').click(function() {
-       var filterProducts = products.filter(function(product) {
+        var filterProducts = products.filter(function(product) {
           return product.price <= 60000;
         });
         $('.row').html('');
@@ -94,6 +94,7 @@
       //   return a.localeCompare(b);
       // });
       // console.log(array2);
+      
 
       function products_list(data) {
         data.forEach((a, i) => {
@@ -102,12 +103,27 @@
               <img src="https://via.placeholder.com/600" class="w-100">
               <h5>${a.title}</h5>
               <p>가격 : ${a.price}</p>
+              <button class="buy btn btn-danger">구매</button>
             </div>`;
           $('.row').append(template);
         })
       }
 
       products_list(products);
+
+      $('.buy').click(function(e) {
+
+        let title = $(e.target).siblings('h5').text();
+        
+        if (localStorage.getItem('cart') != null) {
+          let cart = JSON.parse(localStorage.cart);
+          cart.push(title);
+          localStorage.setItem('cart', JSON.stringify(cart));
+        } else {
+          localStorage.setItem('cart', JSON.stringify([title]));
+        }
+      });
+
 
     </script>
 
