@@ -8,7 +8,8 @@ export default function List() {
     "강남 맛집 추천",
   ]);
   let [like, setLike] = useState([0, 0, 0]);
-  let [modal, setModal] = useState(false);
+  let [modal, setModal] = useState(false, false, false);
+  const [modalTitle, setModalTitle] = useState(0);
 
   return (
     <>
@@ -63,6 +64,7 @@ export default function List() {
             <h4
               onClick={() => {
                 setModal(!modal);
+                setModalTitle(index);
               }}
             >
               {title[index]}
@@ -81,7 +83,15 @@ export default function List() {
           </div>
         );
       })}
-      {modal && <Modal />}
+
+      {modal && (
+        <Modal
+          title={title}
+          color={"lightblue"}
+          setTitle={setTitle}
+          modalTitle={modalTitle}
+        />
+      )}
     </>
   );
 }
