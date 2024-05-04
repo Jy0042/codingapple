@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "./Modal";
 
 export default function List() {
   let [title, setTitle] = useState([
@@ -7,6 +8,7 @@ export default function List() {
     "강남 맛집 추천",
   ]);
   let [like, setLike] = useState(0);
+  let [modal, setModal] = useState(false);
 
   return (
     <>
@@ -53,9 +55,10 @@ export default function List() {
         <p>2월 17일 발행</p>
       </div>
       <div className="list">
-        <h4>{title[2]}</h4>
+        <h4 onClick={() => setModal(!modal)}>{title[2]}</h4>
         <p>2월 17일 발행</p>
       </div>
+      {modal && <Modal />}
     </>
   );
 }
