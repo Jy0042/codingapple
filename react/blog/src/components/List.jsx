@@ -71,7 +71,8 @@ export default function List() {
             >
               {title[index]}
               <span
-                onClick={() => {
+                onClick={(e) => {
+                  e.stopPropagation();
                   let changeLike = [...like];
                   changeLike[index] += 1;
                   setLike(changeLike);
