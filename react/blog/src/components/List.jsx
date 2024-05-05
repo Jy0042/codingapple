@@ -10,6 +10,8 @@ export default function List() {
   let [like, setLike] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false, false, false);
   const [modalTitle, setModalTitle] = useState(0);
+  const [inputVal, setInputVal] = useState("");
+  const [date, setDate] = useState(["2월 17일", "3월 15일", "4월 22일"]);
 
   return (
     <>
@@ -79,10 +81,52 @@ export default function List() {
               </span>
               {like[index]}
             </h4>
-            <p>2월 17일 발행</p>
+            <p>
+              {date[index]} 발행{" "}
+              <button
+                onClick={() => {
+                  let deleteTitle = [...title];
+                  deleteTitle.splice(index, 1);
+                  setTitle(deleteTitle);
+                }}
+              >
+                삭제
+              </button>
+            </p>
           </div>
         );
       })}
+
+      <input
+        onChange={(e) => {
+          setInputVal(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          if (inputVal === "") {
+            alert("공백 x");
+          } else {
+            let createTitle = [...title];
+            createTitle.unshift(inputVal);
+            setTitle(createTitle);
+
+            let createLike = [...like];
+            createLike.unshift(0);
+            setLike(createLike);
+
+            let createDate = [...date];
+            let currentDate = new Date().toLocaleDateString("ko-KR", {
+              month: "long",
+              day: "numeric",
+            });
+            createDate.unshift(currentDate);
+            setDate(createDate);
+          }
+        }}
+      >
+        글 쓰기
+      </button>
 
       {modal && (
         <Modal
