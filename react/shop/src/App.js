@@ -111,6 +111,8 @@ function App() {
 }
 
 function Card(props) {
+  const navigate = useNavigate();
+
   return (
     <>
       {props.shoes.map((item, i) => {
@@ -124,6 +126,9 @@ function Card(props) {
               }
               width="80%"
               alt="신발 이미지"
+              onClick={() => {
+                navigate(`/detail/${item.id}`);
+              }}
             />
             <h4>{item.title}</h4>
             <p>{item.content}</p>
