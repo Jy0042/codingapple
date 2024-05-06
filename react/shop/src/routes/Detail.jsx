@@ -1,4 +1,11 @@
 import { useParams } from "react-router-dom";
+import styled from "styled-components";
+
+// let YellowBtn = styled.button`
+//   background: ${(props) => props.bg};
+//   color: ${(props) => (props.bg === "blue" ? "white" : "black")};
+//   padding: 10px;
+// `;
 
 export default function Detail(props) {
   let { id } = useParams();
@@ -10,6 +17,8 @@ export default function Detail(props) {
   const findShoes = props.shoes.find((i) => i.id === parseInt(id));
   return (
     <div className="container">
+      {/* <YellowBtn bg="blue">버튼</YellowBtn>
+      <YellowBtn bg="orange">버튼</YellowBtn> */}
       <div className="row">
         {isNum ? (
           <>
