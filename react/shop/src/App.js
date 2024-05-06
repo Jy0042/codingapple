@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.png";
 import Products from "./components/Products";
-import { useState } from "react";
+import { createContext, useState } from "react";
 import data from "./data2.js";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Detail from "./routes/Detail.jsx";
@@ -11,11 +11,14 @@ import About from "./routes/About.jsx";
 import EventPage from "./routes/EventPage.jsx";
 import axios from "axios";
 
+export let Context1 = createContext();
+
 function App() {
   const [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [clickCount, setClickCount] = useState(0);
+  const [inven] = useState([10, 11, 12]);
 
   const fetchData = () => {
     if (clickCount >= 2) {
@@ -96,7 +99,14 @@ function App() {
             </>
           }
         />
-        <Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+        <Route
+          path="/detail/:id"
+          element={
+            <Context1.Provider value={{ inven }}>
+              <Detail shoes={shoes} />
+            </Context1.Provider>
+          }
+        />
         <Route path="/about" element={<About />}>
           <Route path="member" element={<div>멤버</div>} />
           <Route path="location" element={<div>위치 정보</div>} />

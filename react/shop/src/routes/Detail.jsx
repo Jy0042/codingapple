@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Nav } from "react-bootstrap";
+
+import { Context1 } from "./../App.js";
 
 let Input = styled.input`
   display: flex;
@@ -10,6 +12,8 @@ let Input = styled.input`
 `;
 
 export default function Detail(props) {
+  let { inven } = useContext(Context1);
+
   let [time, setTime] = useState(true);
   let [num, setNum] = useState("");
   let [tab, setTab] = useState(0);
@@ -124,6 +128,8 @@ export default function Detail(props) {
     </div>
   );
   function TabContent({ tab }) {
+    let { inven } = useContext(Context1);
+
     let [fade, setFade] = useState("");
     useEffect(() => {
       let time = setTimeout(() => {
