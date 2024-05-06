@@ -5,31 +5,52 @@ import bg from "./img/bg.png";
 import Products from "./components/Products";
 import { useState } from "react";
 import data from "./data2.js";
-import { Routes, Route, Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
-import Detail from "./components/Detail.jsx";
+import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import Detail from "./routes/Detail.jsx";
+import About from "./routes/About.jsx";
+import EventPage from "./routes/EventPage.jsx";
 
 function App() {
   const [shoes] = useState(data);
+  let navigate = useNavigate();
 
   return (
     <div className="App">
       <Navbar bg="primary" data-bs-theme="primary" className="custom-navbar">
         <Container>
-          <Navbar.Brand href="#home">React Shop</Navbar.Brand>
+          <Navbar.Brand
+            href="#home"
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            React Shop
+          </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#pricing">Cart</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/");
+              }}
+            >
+              Home
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/detail");
+              }}
+            >
+              Detail
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      <Link className="homeButton" to="/">
+      {/* <Link className="homeButton" to="/">
         <Button variant="warning">홈</Button>
       </Link>
       <Link to="/detail">
         <Button variant="warning">상세 페이지</Button>
-      </Link>
+      </Link> */}
 
       <Routes>
         <Route
@@ -52,6 +73,14 @@ function App() {
           }
         />
         <Route path="/detail" element={<Detail />} />
+        <Route path="/about" element={<About />}>
+          <Route path="member" element={<div>멤버</div>} />
+          <Route path="location" element={<div>위치 정보</div>} />
+        </Route>
+        <Route path="/event" element={<EventPage />}>
+          <Route path="one" element={<div>첫 주분 시 티셔츠 서비스</div>} />
+          <Route path="two" element={<div>생일 기념 쿠폰 받기</div>} />
+        </Route>
       </Routes>
     </div>
   );
@@ -63,6 +92,7 @@ function Card(props) {
       <img
         src={"https://codingapple1.github.io/shop/shoes" + props.i + ".jpg"}
         width="80%"
+        alt="신발 이미지"
       />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>

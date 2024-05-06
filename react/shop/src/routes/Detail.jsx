@@ -6,6 +6,7 @@ export default function Detail() {
           <img
             src="https://codingapple1.github.io/shop/shoes1.jpg"
             width="100%"
+            alt="신발 이미지"
           />
         </div>
         <div className="col-md-6">
