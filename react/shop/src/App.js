@@ -9,10 +9,33 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import Detail from "./routes/Detail.jsx";
 import About from "./routes/About.jsx";
 import EventPage from "./routes/EventPage.jsx";
+import axios from "axios";
 
 function App() {
-  const [shoes] = useState(data);
+  const [shoes, setShoes] = useState(data);
   let navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
+
+  const fetchData = () => {
+    if (clickCount >= 2) {
+      alert("마지막 페이지 입니다.");
+      return;
+    }
+    setLoading(true);
+    axios
+      .get("https://codingapple1.github.io/shop/data2.json")
+      .then((result) => {
+        let copy = [...shoes, ...result.data];
+        setShoes(copy);
+        setLoading(false);
+        setClickCount(clickCount + 1);
+      })
+      .catch(() => {
+        console.log("실패");
+        setLoading(false);
+      });
+  };
 
   return (
     <div className="App">
@@ -63,12 +86,13 @@ function App() {
               ></div>
               <div className="container">
                 <div className="row">
-                  <Card shoes={shoes[0]} i={1} />
-                  <Card shoes={shoes[1]} i={2} />
-                  <Card shoes={shoes[2]} i={3} />
-                  <Products />
+                  <Card shoes={shoes} />
+                  <Products shoes={shoes} />
                 </div>
               </div>
+              <button onClick={fetchData} disabled={loading}>
+                버튼
+              </button>
             </>
           }
         />
@@ -88,16 +112,26 @@ function App() {
 
 function Card(props) {
   return (
-    <div className="col-md-4">
-      <img
-        src={"https://codingapple1.github.io/shop/shoes" + props.i + ".jpg"}
-        width="80%"
-        alt="신발 이미지"
-      />
-      <h4>{props.shoes.title}</h4>
-      <p>{props.shoes.content}</p>
-      <p>{props.shoes.price}</p>
-    </div>
+    <>
+      {props.shoes.map((item, i) => {
+        return (
+          <div className="col-md-4" key={i}>
+            <img
+              src={
+                "https://codingapple1.github.io/shop/shoes" +
+                (parseInt(i) + 1) +
+                ".jpg"
+              }
+              width="80%"
+              alt="신발 이미지"
+            />
+            <h4>{item.title}</h4>
+            <p>{item.content}</p>
+            <p>{item.price}</p>
+          </div>
+        );
+      })}
+    </>
   );
 }
 
