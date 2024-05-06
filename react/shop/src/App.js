@@ -1,11 +1,11 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar, Container, Nav, Button } from "react-bootstrap";
+import { Navbar, Container, Nav } from "react-bootstrap";
 import bg from "./img/bg.png";
 import Products from "./components/Products";
 import { useState } from "react";
 import data from "./data2.js";
-import { Routes, Route, Link, useNavigate, Outlet } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Detail from "./routes/Detail.jsx";
 import About from "./routes/About.jsx";
 import EventPage from "./routes/EventPage.jsx";
