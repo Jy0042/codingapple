@@ -33,3 +33,7 @@
 .custom-navbar .navbar-nav .nav-link:active {
   color: #ff0;
 }
+
+.homeButton {
+  margin-right: 10px;
+}

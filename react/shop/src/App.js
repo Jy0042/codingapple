@@ -5,6 +5,9 @@ import bg from "./img/bg.png";
 import Products from "./components/Products";
 import { useState } from "react";
 import data from "./data2.js";
+import { Routes, Route, Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import Detail from "./components/Detail.jsx";
 
 function App() {
   const [shoes] = useState(data);
@@ -16,24 +19,40 @@ function App() {
           <Navbar.Brand href="#home">React Shop</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">Community</Nav.Link>
             <Nav.Link href="#pricing">Cart</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
 
-      <div
-        className="main-bg"
-        style={{ backgroundImage: "url(" + bg + ")" }}
-      ></div>
-      <div className="container">
-        <div className="row">
-          <Card shoes={shoes[0]} i={1} />
-          <Card shoes={shoes[1]} i={2} />
-          <Card shoes={shoes[2]} i={3} />
-          <Products />
-        </div>
-      </div>
+      <Link className="homeButton" to="/">
+        <Button variant="warning">홈</Button>
+      </Link>
+      <Link to="/detail">
+        <Button variant="warning">상세 페이지</Button>
+      </Link>
+
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <div
+                className="main-bg"
+                style={{ backgroundImage: "url(" + bg + ")" }}
+              ></div>
+              <div className="container">
+                <div className="row">
+                  <Card shoes={shoes[0]} i={1} />
+                  <Card shoes={shoes[1]} i={2} />
+                  <Card shoes={shoes[2]} i={3} />
+                  <Products />
+                </div>
+              </div>
+            </>
+          }
+        />
+        <Route path="/detail" element={<Detail />} />
+      </Routes>
     </div>
   );
 }
