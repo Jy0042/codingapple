@@ -10,6 +10,7 @@ import Detail from "./routes/Detail.jsx";
 import About from "./routes/About.jsx";
 import EventPage from "./routes/EventPage.jsx";
 import axios from "axios";
+import Cart from "./routes/Cart.jsx";
 
 export let Context1 = createContext();
 
@@ -62,10 +63,17 @@ function App() {
             </Nav.Link>
             <Nav.Link
               onClick={() => {
-                navigate("/detail");
+                navigate("/detail/0");
               }}
             >
               Detail
+            </Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/cart");
+              }}
+            >
+              Cart
             </Nav.Link>
           </Nav>
         </Container>
@@ -115,6 +123,7 @@ function App() {
           <Route path="one" element={<div>첫 주분 시 티셔츠 서비스</div>} />
           <Route path="two" element={<div>생일 기념 쿠폰 받기</div>} />
         </Route>
+        <Route path="/cart" element={<Cart />} />
       </Routes>
     </div>
   );

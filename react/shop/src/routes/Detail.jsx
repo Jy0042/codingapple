@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Nav } from "react-bootstrap";
-
 import { Context1 } from "./../App.js";
+import { cartAdd } from "./../store/productSlice.js";
+import { useDispatch } from "react-redux";
 
 let Input = styled.input`
   display: flex;
@@ -12,6 +13,8 @@ let Input = styled.input`
 `;
 
 export default function Detail(props) {
+  let dispatch = useDispatch();
+
   let { inven } = useContext(Context1);
 
   let [time, setTime] = useState(true);
@@ -82,7 +85,20 @@ export default function Detail(props) {
                 }}
               />
 
-              <button className="btn btn-danger">주문하기</button>
+              <button
+                className="btn btn-danger"
+                onClick={() => {
+                  dispatch(
+                    cartAdd({
+                      id: findShoes.id,
+                      name: findShoes.title,
+                      count: 1,
+                    })
+                  );
+                }}
+              >
+                주문하기
+              </button>
             </div>
           </>
         ) : (
