@@ -4,12 +4,8 @@ import { useState } from "react";
 function App() {
   const [title, setTitle] = useState(["남자 코트 추천", "강남 우동 맛집", "파이썬 독학"]);
   const [like, setLike] = useState([0, 0, 0]);
-
-  const increaseLike = (index) => {
-    const newLike = [...like];
-    newLike[index] += 1;
-    setLike(newLike);
-  };
+  const [modal, setModal] = useState(false);
+  const [modalTitle, setModalTitle] = useState(0);
 
   return (
     <div className="App">
@@ -25,41 +21,56 @@ function App() {
       >
         가나다순 정렬
       </button>
+
+      {title.map(function (t, i) {
+        return (
+          <div className="list" key={i}>
+            <h4
+              onClick={() => {
+                setModal(!modal);
+                setModalTitle(i);
+              }}
+            >
+              {title[i]}
+              <span
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const newLike = [...like];
+                  newLike[i] += 1;
+                  setLike(newLike);
+                }}
+              >
+                👍
+              </span>
+              {like[i]}
+            </h4>
+            <p>2월 17일 발행</p>
+          </div>
+        );
+      })}
+
+      {modal === true ? (
+        <Modal color="beige" title={title} setTitle={setTitle} modalTitle={modalTitle} />
+      ) : null}
+    </div>
+  );
+}
+
+function Modal(props) {
+  return (
+    <div className="modal" style={{ background: props.color }}>
+      <h4>{props.title[props.modalTitle]}</h4>
+      <p>날짜</p>
+      <p>상세내용</p>
       <button
         onClick={() => {
-          const newTitle = [...title];
+          const newTitle = [...props.title];
           newTitle[0] = "여자 코트 추천";
-          setTitle(newTitle);
+          props.setTitle(newTitle);
         }}
       >
-        글 수정
+        글수정
       </button>
-      <div className="list">
-        <h4>
-          {title[0]}{" "}
-          <span
-            onClick={(e) => {
-              increaseLike(0);
-            }}
-          >
-            👍
-          </span>{" "}
-          {like[0]}{" "}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>
-          {title[1]} <span>👍</span> {like[1]}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>
-          {title[2]} <span>👍</span> {like[2]}
-        </h4>
-        <p>2월 17일 발행</p>
-      </div>
     </div>
   );
 }
