@@ -1,29 +1,41 @@
+import React from "react";
 import "./App.css";
-import { useState } from "react";
+import Header from "./components/Header";
+import List from "./components/List";
 
 function App() {
-  let post = "강남 우동 맛집";
-  let [title, setTitle] = useState(["남자 코트 추천", "강남 우동 맛집", "파이썬 독학"]);
-
   return (
-    <div className="App">
-      <div className="black-nav">
-        <h4>블로그</h4>
-      </div>
-      <div className="list">
-        <h4>{title[0]}</h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{title[1]}</h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{title[2]}</h4>
-        <p>2월 17일 발행</p>
-      </div>
-    </div>
+    <>
+      <Header />
+      <List />
+      <Modal2 name="철수" age={30} />
+    </>
   );
+}
+
+class Modal2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "kim",
+      age: 20,
+    };
+  }
+  render() {
+    return (
+      <div>
+        안녕 {this.props.name} 나이는 {this.state.age}
+        나는 {this.props.age}
+        <button
+          onClick={() => {
+            this.setState({ age: 23 });
+          }}
+        >
+          버튼
+        </button>
+      </div>
+    );
+  }
 }
 
 export default App;
