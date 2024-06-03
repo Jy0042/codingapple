@@ -6,6 +6,7 @@ function App() {
   const [like, setLike] = useState([0, 0, 0]);
   const [modal, setModal] = useState(false);
   const [modalTitle, setModalTitle] = useState(0);
+  const [input, setInput] = useState("");
 
   return (
     <div className="App">
@@ -43,12 +44,40 @@ function App() {
                 👍
               </span>
               {like[i]}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  const delTitle = [...title];
+                  delTitle.splice(i, 1);
+                  setTitle(delTitle);
+                }}
+              >
+                글 삭제
+              </button>
             </h4>
             <p>2월 17일 발행</p>
           </div>
         );
       })}
-
+      <input
+        onChange={(e) => {
+          setInput(e.target.value);
+        }}
+        value={input}
+      ></input>
+      <button
+        onClick={() => {
+          const createTitle = [...title];
+          createTitle.unshift(input);
+          input.trim() !== "" ? setTitle(createTitle) : alert("글을 입력해주세요");
+          setInput("");
+          const createLike = [...like];
+          createLike.unshift(0);
+          setLike(createLike);
+        }}
+      >
+        글 생성
+      </button>
       {modal === true ? (
         <Modal color="beige" title={title} setTitle={setTitle} modalTitle={modalTitle} />
       ) : null}
