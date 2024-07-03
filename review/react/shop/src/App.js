@@ -60,7 +60,11 @@ export default App;
 function Product(props) {
   return (
     <Col sm>
-      <img src={`https://codingapple1.github.io/shop/shoes${props.shoes.id + 1}.jpg`} width="80%" />
+      <img
+        src={`https://codingapple1.github.io/shop/shoes${props.shoes.id + 1}.jpg`}
+        width="80%"
+        alt={props.shoes.title}
+      />
       <h4>{props.shoes.title}</h4>
       <p>{props.shoes.content}</p>
       <p>{props.shoes.price}</p>

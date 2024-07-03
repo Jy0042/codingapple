@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 // const YellowButton = styled.button`
 //   background: ${(props) => props.color};
@@ -29,7 +29,11 @@ export default function DetailPage(props) {
       </Box> */}
       <div className="row">
         <div className="col-md-6">
-          <img src={`https://codingapple1.github.io/shop/shoes${imgId}.jpg`} width="100%" />
+          <img
+            src={`https://codingapple1.github.io/shop/shoes${imgId}.jpg`}
+            width="100%"
+            alt={product.title}
+          />
         </div>
         <div className="col-md-6">
           <h4 className="pt-5">{product.title}</h4>
