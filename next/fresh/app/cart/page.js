@@ -1,25 +1,19 @@
-import age from "./data";
+let cart = ["Tomatoes", "Pasta"];
 
 export default function Cart() {
   return (
     <div>
       <h4 className="title">Cart</h4>
-      <div className="cart-item">
-        <p>상품명</p>
-        <p>$40</p>
-        <p>1개</p>
-      </div>
-      <CartItem />
-      <CartItem />
-      <CartItem />
+      <CartItem item={cart[0]} />
+      <CartItem item={cart[1]} />
     </div>
   );
 }
 
-function CartItem() {
+function CartItem(props) {
   return (
     <div className="cart-item">
-      <p>상품명</p>
+      <p>{props.item}</p>
       <p>$40</p>
       <p>1개</p>
     </div>
